@@ -21,6 +21,39 @@ namespace pryBordigaGabriel
         {
 
         }
-        
+
+        private void frmFirma_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void frmJuego_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void frmFirma_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmJuego_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pcFirma_Click(object sender, EventArgs e)
+        {
+            frmFirma Firma = new frmFirma();
+            Firma.Show();
+        }
+
+        private void pcJuego_Click(object sender, EventArgs e)
+        {
+            frmJuego Juego = new frmJuego();
+            Juego.Show();
+        }
     }
 }
