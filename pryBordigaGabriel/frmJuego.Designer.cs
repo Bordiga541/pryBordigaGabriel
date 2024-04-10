@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
+            this.SuspendLayout();
             // 
             // frmJuego
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
-            ClientSize = new Size(700, 700);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "frmJuego";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Juego";
-            Load += frmJuego_Load;
-            KeyDown += frmJuego_KeyDown;
-            KeyPress += frmJuego_KeyPress;
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(700, 700);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmJuego";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Juego";
+            this.Load += new System.EventHandler(this.frmJuego_Load_1);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmJuego_KeyDown_1);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

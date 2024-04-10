@@ -29,62 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            pictureBox1 = new PictureBox();
-            pcFirma = new PictureBox();
-            pcJuego = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pcFirma).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pcJuego).BeginInit();
-            SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcFirma = new System.Windows.Forms.PictureBox();
+            this.pcJuego = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcFirma)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcJuego)).BeginInit();
+            this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-4, -2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(288, 95);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(288, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // pcFirma
             // 
-            pcFirma.Image = (Image)resources.GetObject("pcFirma.Image");
-            pcFirma.Location = new Point(26, 33);
-            pcFirma.Name = "pcFirma";
-            pcFirma.Size = new Size(75, 23);
-            pcFirma.SizeMode = PictureBoxSizeMode.StretchImage;
-            pcFirma.TabIndex = 5;
-            pcFirma.TabStop = false;
-            pcFirma.Click += pcFirma_Click;
+            this.pcFirma.Image = ((System.Drawing.Image)(resources.GetObject("pcFirma.Image")));
+            this.pcFirma.Location = new System.Drawing.Point(26, 33);
+            this.pcFirma.Name = "pcFirma";
+            this.pcFirma.Size = new System.Drawing.Size(75, 23);
+            this.pcFirma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcFirma.TabIndex = 5;
+            this.pcFirma.TabStop = false;
+            this.pcFirma.Click += new System.EventHandler(this.pcFirma_Click_1);
             // 
             // pcJuego
             // 
-            pcJuego.Image = (Image)resources.GetObject("pcJuego.Image");
-            pcJuego.Location = new Point(173, 33);
-            pcJuego.Name = "pcJuego";
-            pcJuego.Size = new Size(75, 23);
-            pcJuego.SizeMode = PictureBoxSizeMode.StretchImage;
-            pcJuego.TabIndex = 5;
-            pcJuego.TabStop = false;
-            pcJuego.Click += pcJuego_Click;
+            this.pcJuego.Image = ((System.Drawing.Image)(resources.GetObject("pcJuego.Image")));
+            this.pcJuego.Location = new System.Drawing.Point(173, 33);
+            this.pcJuego.Name = "pcJuego";
+            this.pcJuego.Size = new System.Drawing.Size(75, 23);
+            this.pcJuego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcJuego.TabIndex = 5;
+            this.pcJuego.TabStop = false;
+            this.pcJuego.Click += new System.EventHandler(this.pcJuego_Click_1);
             // 
             // frmPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(283, 89);
-            Controls.Add(pcJuego);
-            Controls.Add(pcFirma);
-            Controls.Add(pictureBox1);
-            Name = "frmPrincipal";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmPrincipal";
-            Load += frmPrincipal_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pcFirma).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pcJuego).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(283, 89);
+            this.Controls.Add(this.pcJuego);
+            this.Controls.Add(this.pcFirma);
+            this.Controls.Add(this.pictureBox1);
+            this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmPrincipal";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPrincipal_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcFirma)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcJuego)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

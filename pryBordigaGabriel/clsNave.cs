@@ -18,7 +18,9 @@ namespace pryBordigaGabriel
         public PictureBox imgEnemigo1;
         public PictureBox imgEnemigo2;
         public PictureBox imgEnemigo3;
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public PictureBox imgEnemigo4;
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
 
 
         public void crearJugador() 

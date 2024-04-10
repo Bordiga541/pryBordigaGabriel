@@ -17,10 +17,29 @@ namespace pryBordigaGabriel
         {
             InitializeComponent();
         }
-
+        
         private void frmJuego_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void frmJuego_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void frmJuego_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+        public void Random() 
+        {
+            
+        }
+        private void frmJuego_Load_1(object sender, EventArgs e)
+        {
             objNaveJugador = new clsNave();
+            
 
             objNaveJugador.crearJugador();
             objNaveJugador.imgNave.Location = new Point(300, 600);
@@ -43,25 +62,25 @@ namespace pryBordigaGabriel
             Controls.Add(objNaveJugador.imgEnemigo4);
         }
 
-        private void frmJuego_KeyDown(object sender, KeyEventArgs e)
+        private void frmJuego_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
             {
-                if (objNaveJugador.imgNave.Location.X < 620) 
+                if (objNaveJugador.imgNave.Location.X < 620)
                 {
                     objNaveJugador.imgNave.Location = new Point(objNaveJugador.imgNave.Location.X + 5,
                                                             objNaveJugador.imgNave.Location.Y);
                 }
-                    
+
             }
             if (e.KeyCode == Keys.Left)
             {
-                if (objNaveJugador.imgNave.Location.X > -18) 
+                if (objNaveJugador.imgNave.Location.X > -18)
                 {
                     objNaveJugador.imgNave.Location = new Point(objNaveJugador.imgNave.Location.X - 5,
                                                             objNaveJugador.imgNave.Location.Y);
                 }
-                    
+
             }
             if (e.KeyCode == Keys.Up)
             {
@@ -74,22 +93,17 @@ namespace pryBordigaGabriel
             }
             if (e.KeyCode == Keys.Down)
             {
-                if (objNaveJugador.imgNave.Location.Y < 650) 
+                if (objNaveJugador.imgNave.Location.Y < 650)
                 {
                     objNaveJugador.imgNave.Location = new Point(objNaveJugador.imgNave.Location.X,
                                                             objNaveJugador.imgNave.Location.Y + 5);
                 }
-                    
+
             }
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
-        }
-
-        private void frmJuego_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
         }
     }
 }
