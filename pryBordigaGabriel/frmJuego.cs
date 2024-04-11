@@ -17,21 +17,6 @@ namespace pryBordigaGabriel
         {
             InitializeComponent();
         }
-        
-        private void frmJuego_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void frmJuego_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void frmJuego_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
         public void Random() 
         {
             

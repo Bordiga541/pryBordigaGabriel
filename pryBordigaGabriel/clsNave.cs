@@ -30,7 +30,7 @@ namespace pryBordigaGabriel
             puntosDaño = 1;
             imgNave = new PictureBox();
             imgNave.SizeMode = PictureBoxSizeMode.Zoom;
-            imgNave.ImageLocation = "PicturesJuego/nave.png";
+            imgNave.ImageLocation = "../../../../Images/PicturesJuego/nave.png";
             
         }
         public void crearEnemigo1()
@@ -40,7 +40,7 @@ namespace pryBordigaGabriel
             puntosDaño = 2;
             imgEnemigo1 = new PictureBox();
             imgEnemigo1.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo1.ImageLocation = "PicturesJuego/enemigo1.png";
+            imgEnemigo1.ImageLocation = "../../../../Images/PicturesJuego/enemigo1.png";
         }
         public void crearEnemigo2()
         {
@@ -49,7 +49,7 @@ namespace pryBordigaGabriel
             puntosDaño = 2;
             imgEnemigo2 = new PictureBox();
             imgEnemigo2.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo2.ImageLocation = "PicturesJuego/enemigo2.png";
+            imgEnemigo2.ImageLocation = "../../../../Images/PicturesJuego/enemigo2.png";
         }
         public void crearEnemigo3()
         {
@@ -58,7 +58,7 @@ namespace pryBordigaGabriel
             puntosDaño = 2;
             imgEnemigo3 = new PictureBox();
             imgEnemigo3.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo3.ImageLocation = "PicturesJuego/enemigo3.png";
+            imgEnemigo3.ImageLocation = "../../../../Images/PicturesJuego/enemigo3.png";
         }
         public void crearEnemigo4()
         {
@@ -67,7 +67,7 @@ namespace pryBordigaGabriel
             puntosDaño = 2;
             imgEnemigo4 = new PictureBox();
             imgEnemigo4.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo4.ImageLocation = "PicturesJuego/enemigo4.png";
+            imgEnemigo4.ImageLocation = "../../../../Images/PicturesJuego/enemigo4.png";
         }
     }
 }
