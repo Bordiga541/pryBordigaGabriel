@@ -7,23 +7,19 @@ using System.Windows.Forms;
 
 namespace pryBordigaGabriel
 {
+
     internal class clsNave
     {
         //Características
-
         public int vida;
         public string nombre;
         int puntosDaño;
         public PictureBox imgNave;
-        public PictureBox imgEnemigo1;
-        public PictureBox imgEnemigo2;
-        public PictureBox imgEnemigo3;
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public PictureBox imgEnemigo4;
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+        public List<Enemigo> enemigos = new List<Enemigo>();
+        public List<PictureBox> balas = new List<PictureBox>();
+        public List<PictureBox> balasEnemigos = new List<PictureBox>();
 
-
-        public void crearJugador() 
+        public void crearJugador()
         {
             vida = 100;
             nombre = "jugador1";
@@ -31,43 +27,108 @@ namespace pryBordigaGabriel
             imgNave = new PictureBox();
             imgNave.SizeMode = PictureBoxSizeMode.Zoom;
             imgNave.ImageLocation = "../../../../Images/PicturesJuego/nave.png";
-            
         }
-        public void crearEnemigo1()
+
+        public void crearEnemigo(string nombreEnemigo, Form form)
         {
-            vida = 25;
-            nombre = "malito1";
-            puntosDaño = 2;
-            imgEnemigo1 = new PictureBox();
-            imgEnemigo1.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo1.ImageLocation = "../../../../Images/PicturesJuego/enemigo1.png";
+            Random rand = new Random();
+            int posicionX = rand.Next(0, form.Width - 100); // Generar una posición X aleatoria dentro del ancho del formulario
+            int posicionY = rand.Next(50, 500); // Generar una posición Y aleatoria entre 50 y 500
+            Point posicion = new Point(posicionX, posicionY); // La posición Y será aleatoria (entre 50 y 500)
+
+            string imagenEnemigo = imagenesEnemigos[rand.Next(imagenesEnemigos.Count)]; // Seleccionar una imagen de enemigo aleatoria
+
+            Enemigo enemigo = new Enemigo();
+            enemigo.vida = 25;
+            enemigo.posicion = posicion; // Asignar la posición
+            enemigo.imgEnemigo = new PictureBox();
+            enemigo.imgEnemigo.SizeMode = PictureBoxSizeMode.Zoom;
+            enemigo.imgEnemigo.ImageLocation = "../../../../Images/PicturesJuego/" + imagenEnemigo;
+            enemigos.Add(enemigo);
         }
-        public void crearEnemigo2()
+
+        public void disparar()
         {
-            vida = 25;
-            nombre = "malito2";
-            puntosDaño = 2;
-            imgEnemigo2 = new PictureBox();
-            imgEnemigo2.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo2.ImageLocation = "../../../../Images/PicturesJuego/enemigo2.png";
+            PictureBox bala = new PictureBox();
+            bala.SizeMode = PictureBoxSizeMode.Zoom;
+            bala.ImageLocation = "../../../../Images/PicturesJuego/bala.png";
+            bala.Left = imgNave.Left + imgNave.Width / 2 - bala.Width / 9; // Ajustar la posición inicial de la bala
+            bala.Top = imgNave.Top;
+            bala.Width = 20;  // Ancho de la bala
+            bala.Height = 20; // Altura de la bala
+            balas.Add(bala);
         }
-        public void crearEnemigo3()
+
+        public void moverBalas(Form form)
         {
-            vida = 25;
-            nombre = "malito3";
-            puntosDaño = 2;
-            imgEnemigo3 = new PictureBox();
-            imgEnemigo3.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo3.ImageLocation = "../../../../Images/PicturesJuego/enemigo3.png";
+            for (int i = balas.Count - 1; i >= 0; i--)
+            {
+                PictureBox bala = balas[i];
+                bala.Top -= 20;
+                for (int j = enemigos.Count - 1; j >= 0; j--)
+                {
+                    Enemigo enemigo = enemigos[j];
+                    if (bala.Bounds.IntersectsWith(enemigo.imgEnemigo.Bounds))
+                    {
+                        enemigo.vida -= 15;
+                        if (enemigo.vida <= 0)
+                        {
+                            form.Controls.Remove(enemigo.imgEnemigo);
+                            enemigos.RemoveAt(j);
+                        }
+                        form.Controls.Remove(bala);
+                        balas.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
         }
-        public void crearEnemigo4()
+        public void moverNave(bool izquierda, int velocidad)
         {
-            vida = 25;
-            nombre = "malito4";
-            puntosDaño = 2;
-            imgEnemigo4 = new PictureBox();
-            imgEnemigo4.SizeMode = PictureBoxSizeMode.Zoom;
-            imgEnemigo4.ImageLocation = "../../../../Images/PicturesJuego/enemigo4.png";
+            if (izquierda)
+            {
+                imgNave.Left -= velocidad;
+            }
+            else
+            {
+                imgNave.Left += velocidad;
+            }
         }
+        public List<string> imagenesEnemigos = new List<string>()
+        {
+            "enemigo1.png",
+            "enemigo2.png",
+            "enemigo3.png",
+            "enemigo4.png"
+        };
+        public void moverBalasEnemigos(Form form, ProgressBar barraVida)
+        {
+            for (int i = balasEnemigos.Count - 1; i >= 0; i--)
+            {
+                PictureBox balaEnemigo = balasEnemigos[i];
+                balaEnemigo.Top += 20; // Mover la bala hacia abajo
+                if (vida <= 0)
+                {
+                    
+                }
+                else if (balaGolpeaNave(balaEnemigo))
+                {
+                    vida -= 20; // Reducir la vida de la nave
+                    barraVida.Value = vida; // Actualizar la barra de vida
+
+                    // Comprobar si la vida ha llegado a 0
+
+
+                    form.Controls.Remove(balaEnemigo); // Eliminar la bala del formulario
+                    balasEnemigos.RemoveAt(i); // Eliminar la bala de la lista de balas de los enemigos
+                }
+                
+            }
+        }
+        public bool balaGolpeaNave(PictureBox bala)
+        {
+            return bala.Bounds.IntersectsWith(imgNave.Bounds);
+        }
+
     }
 }

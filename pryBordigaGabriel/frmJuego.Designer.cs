@@ -28,24 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            progressBar1 = new ProgressBar();
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(10, 30);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(0, 0);
+            progressBar1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(10, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(33, 15);
+            label1.TabIndex = 1;
+            label1.Text = "VIDA";
             // 
             // frmJuego
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(700, 700);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmJuego";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Juego";
-            this.Load += new System.EventHandler(this.frmJuego_Load_1);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmJuego_KeyDown_1);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
+            ClientSize = new Size(700, 700);
+            Controls.Add(label1);
+            Controls.Add(progressBar1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "frmJuego";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Juego";
+            KeyDown += frmJuego_KeyDown_1;
+            KeyUp += frmJuego_KeyUp;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ProgressBar progressBar1;
+        private Label label1;
     }
 }
