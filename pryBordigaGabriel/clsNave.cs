@@ -137,7 +137,7 @@ namespace pryBordigaGabriel
                 }
                 else if (balaGolpeaNave(balaEnemigo))
                 {
-                    vida -= 15;
+                    vida -= 20;
                     barraVida.Value = vida;
 
 
