@@ -12,15 +12,15 @@ namespace pryBordigaGabriel
         private int frameIndex = 0;
         private List<string> frames = new List<string>()
     {
-        "explosion1.png",
-        "explosion2.png",
-        "explosion3.png",
+        "explosionn1.png",
+        "explosionn2.png",
+        "explosionn3.png",
         // Agrega aquí el resto de tus imágenes de explosión
     };
 
         public Explosion(Point position)
         {
-            imgExplosion.SizeMode = PictureBoxSizeMode.Zoom;
+            imgExplosion.SizeMode = PictureBoxSizeMode.AutoSize;
             imgExplosion.Location = position;
             imgExplosion.Width = 50; // Ajusta el tamaño de la explosión según sea necesario
             imgExplosion.Height = 50;

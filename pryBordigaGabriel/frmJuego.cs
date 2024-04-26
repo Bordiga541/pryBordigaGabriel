@@ -26,24 +26,28 @@ namespace pryBordigaGabriel
             keys.Add(Keys.Left, false);
             keys.Add(Keys.Right, false);
 
+            
+
 
             // Crear la barra de vida
             barraVida = new ProgressBar();
             barraVida.Location = new Point(10, 10); // Posicionar la barra de vida en la parte superior izquierda
-            barraVida.Width = 100; 
-            barraVida.Height = 20; 
-            barraVida.Maximum = 100; 
-            barraVida.Value = 100; 
-            this.Controls.Add(barraVida); 
-            System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer(); 
-            timer1.Interval = 100; 
+            barraVida.Width = 100;
+            barraVida.Height = 20;
+            barraVida.Maximum = 100;
+            barraVida.Value = 100;
+            this.Controls.Add(barraVida);
+            System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
+            timer1.Interval = 100;
             timer1.Enabled = true;
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer2.Interval = 2000; 
-            timer2.Enabled = true;
-            timer2.Tick += new EventHandler(timerDisparoEnemigos_Tick);
+            Random rand = new Random();
+            //timer2.Interval = rand.Next(2200, 3001); // Genera un número aleatorio entre 2200 y 3000
+
+            //timer2.Enabled = true;
+            //timer2.Tick += new EventHandler(timerDisparoEnemigos_Tick);
             nave.crearJugador();
-            nave.imgNave.Location = new Point(this.Width / 2, this.Height - nave.imgNave.Height); // Posicionar la nave en el centro abajo
+            nave.imgNave.Location = new Point(this.Width / 2, this.Height - nave.imgNave.Height - 15); // Posicionar la nave en el centro abajo
             for (int i = 0; i < 4; i++)
             {
                 nave.crearEnemigo("malito" + (i + 1), this);
@@ -90,28 +94,27 @@ namespace pryBordigaGabriel
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            lblScore.Text = "SCORE: " + nave.score;
             bool b = false;
-
-            
 
             if (nave.vida > 0)
             {
                 nave.moverBalas(this, nave);
                 nave.moverBalasEnemigos(this, barraVida);
             }
-            else 
+            else
             {
                 b = true;
                 timer1.Stop();
             }
 
-            if (b) 
+            if (b)
             {
                 MessageBox.Show("¡Has perdido!");
                 this.Close();
                 frmJuego juego = new frmJuego();
                 juego.ShowDialog();
-                
+
             }
             foreach (Enemigo enemigo in nave.enemigos)
             {
@@ -145,7 +148,7 @@ namespace pryBordigaGabriel
 
         }
 
-        
+
 
         private void timerDisparoEnemigos_Tick(object sender, EventArgs e)
         {
@@ -156,9 +159,13 @@ namespace pryBordigaGabriel
                 nave.balasEnemigos.Add(balaEnemigo);
             }
 
-           
+
 
         }
-        
+
+        private void frmJuego_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            
+        }
     }
 }
